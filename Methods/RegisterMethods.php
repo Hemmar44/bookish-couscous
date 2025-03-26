@@ -41,7 +41,9 @@ function EmailTaken(){
 
   function CheckPassword(){
     $pass = $_POST['password'];
+      //bool małą liter $isGood = true;
     $isGood = True;
+      //array = [], $passRules = [];
     $passRules = array();
 
     if(strlen($pass) < 8){
@@ -49,6 +51,11 @@ function EmailTaken(){
       $passRules[] = "short";
     }
 
+    // a tak można zmniejszyć trochę ilość kodu
+    if (!preg_match('/[a-z]/', $pass)) {
+        $isGood = false;
+        $passRules[] = "Hasło musi zawierać przynajmniej jedną małą literę.";
+    }
     $upperCase = preg_match('/[A-Z]/', $pass); 
     if($upperCase == False){
       $isGood = False;
