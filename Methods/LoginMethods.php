@@ -1,5 +1,5 @@
 <?php
-
+//metody w php nazywamy małymi literami
 function NoEmail() {
     print("<div class='alert alert-danger' role='alert'>Nie ma konta z takim emailem</div>");
   }
